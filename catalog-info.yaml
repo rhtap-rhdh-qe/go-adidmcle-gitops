@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-adidmcle-gitops
+  description: This is GitOps manifest for go-adidmcle   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-adidmcle
+    backstage.io/kubernetes-id: go-adidmcle 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: go-adidmcle
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-adidmcle
